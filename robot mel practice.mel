@@ -1,6 +1,11 @@
 //robot head
 polyCube -width 4 -height 4 -depth 4 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
 move -relative 0 1.472982 0 ;
+
+// Kinda hate it (supposed to be robot body)
+//polyCube -width 3 -height 3 -depth 3 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+//move -relative 0 -1.5 0;
+
 // antena
 polyCylinder -radius 1 -height 1 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
 polyCylinder -e -radius .25;
@@ -24,11 +29,27 @@ move -relative -objectSpace -worldSpaceDistance -1 2 2;
 polySphere -radius .5 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
 move -relative -objectSpace -worldSpaceDistance 1 2 2;
 
-polyTorus -radius 3 -sectionRadius 0.5 -twist 0 -subdivisionsX 30 -subdivisionsY 30 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
-move -relative -objectSpace -worldSpaceDistance 0 -1 0;
+//nose
+ polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+ move -relative -objectSpace -worldSpaceDistance 0 1.286 1.867;
 
-polyTorus -radius 2 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+ //"ears"
+polySphere -radius 2 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance -1.328 1.479 0;
+
+polySphere -radius 2 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 1.37 1.479 0;
+
+//Floaty thing
+polyTorus -radius 2 -sectionRadius 0.5 -twist 0 -subdivisionsX 30 -subdivisionsY 30 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
 move -relative -objectSpace -worldSpaceDistance 0 -2 0;
 
 polyTorus -radius 1 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
 move -relative -objectSpace -worldSpaceDistance 0 -3 0;
+
+polyTorus -radius .5 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 -4 0;
+
+polySphere -radius .25 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 -5 0;
+
