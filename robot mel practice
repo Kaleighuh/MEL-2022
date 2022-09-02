@@ -1,0 +1,34 @@
+//robot head
+polyCube -width 4 -height 4 -depth 4 -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+move -relative 0 1.472982 0 ;
+// antena
+polyCylinder -radius 1 -height 1 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+polyCylinder -e -radius .25;
+polyCylinder -e -height 3;
+move -relative -objectSpace -worldSpaceDistance 0 5 0;
+
+polySphere -radius .75 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 6.5 0;
+
+polyTorus -radius .5 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 3.5 0;
+
+// trying to rotate torus (not working)
+//polyTorus -radius .5 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+//move -relative -objectSpace -worldSpaceDistance -2 1.6 -.08;
+
+//eyes
+polySphere -radius .5 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance -1 2 2;
+
+polySphere -radius .5 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 1 2 2;
+
+polyTorus -radius 3 -sectionRadius 0.5 -twist 0 -subdivisionsX 30 -subdivisionsY 30 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 -1 0;
+
+polyTorus -radius 2 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 -2 0;
+
+polyTorus -radius 1 -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 -3 0;
