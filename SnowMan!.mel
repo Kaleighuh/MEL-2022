@@ -1,0 +1,62 @@
+float $size = 3;
+float $angle = 90;
+//float $position[] = {2 2 2};
+
+polySphere -radius ($size) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 $size 0 ;
+
+polySphere -radius ($size - 1) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 (($size * 2) + ($size -1)) 0 ;
+
+polySphere -radius ($size - 2) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 (($size * 2) + (($size -1) * 2) + ($size - 2)) 0 ; // From Lantz Lecture
+
+//Hat
+polyTorus -radius ($size - 2) -sectionRadius 0.5 -twist 0 -subdivisionsX 20 -subdivisionsY 20 -ax 0 1 0 -createUVs 1 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance 0 ($size * 4) 0 ;
+scale -relative -objectSpace 1 0.394458 1 ;
+
+polyCylinder -radius ($size - 2) -height ($size / 2) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative -objectSpace -worldSpaceDistance 0 ($size * 4.25) 0 ;
+
+//Eyes
+polySphere -radius ($size / 15) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance -0.258 11.23 0.951 ;
+
+polySphere -radius ($size / 20) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1 ;
+move -relative -objectSpace  -worldSpaceDistance ($size - 2.7) (($size * 4) - 0.85) ($size - 2) ;
+
+//Nose
+polyCone -radius 1 -height 2 -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 0 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance 0 (($size * 3) + 1.83) ($size - 1.37) ;
+rotate -relative -objectSpace ($angle * -1) ($angle * 2) 0 ;
+scale -relative -objectSpace 0.155 0.745 0.155 ;
+
+//Buttons
+polySphere -radius ($size / 20) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance ($size - 2.7) (($size * 3) -1) ($size -1) ;
+
+polySphere -radius ($size / 12) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance ($size - 3.05) (($size * 2) + 2.5) ($size -1) ;
+
+polySphere -radius ($size / 24) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance ($size - 3.2) (($size * 2) + 1.5) ($size -1.1) ;
+
+polySphere -radius ($size / 15) -subdivisionsX 20 -subdivisionsY 20 -axis 0 1 0 -createUVs 2 -constructionHistory 1;
+move -relative -objectSpace  -worldSpaceDistance ($size - 3.022) (($size * 3) + 0.182) ($size -1.5) ;
+
+//Arms
+
+polyCylinder -radius ($size - 2.8) -height ($size) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+
+move -relative -objectSpace -worldSpaceDistance ($size * -1) (($size * 2) + 1) ($size - 2.9) ;
+
+rotate -relative -objectSpace 0 (($size * 2) + 1) ($angle + 28) ;
+
+polyCylinder -radius ($size - 2.8) -height ($size) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -roundCap 0 -createUVs 3 -constructionHistory 1;
+
+move -relative -objectSpace -worldSpaceDistance ($size - 0.2) (($size * 3) -1) ($size - 2.9) ;
+
+rotate -relative -objectSpace ($size - 3.3) (($size * -3) + 0.5) (($angle * 3) -30) ;
+
+
