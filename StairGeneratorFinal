@@ -1,0 +1,31 @@
+/*Stair Height int $stairtHeight;
+Stair Width int $stairwidth;
+Stair depth int $stairdepth;
+Step Height Distance int $stepDistance;
+Step Rotation int $stepRotation;*/
+
+proc StaircaseGenerator (float $stairHeight, float $stairWidth, float $stairDepth, float $stepDistance, int $stepNumber, int $rotation)
+{
+    for ($stepNumber = 0; $stepNumber < 50; $stepNumber++) 
+    {
+        polyCube -width $stairWidth -height $stairHeight -depth $stairDepth -subdivisionsX 1 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -createUVs 4 -constructionHistory 1;
+
+        xform -rotatePivot (5) 0 0;
+        
+        move -relative 0 ($stepDistance * $stepNumber) 0;
+        
+        rotate -relative -objectSpace -forceOrderXYZ 0 ($rotation * $stepNumber) 0;
+
+        //Wanted to create a pole in the middle. It works, but it creates 50 cylinders lol
+        
+        /*polyCylinder -radius 1 -height ($rotation * 2) -subdivisionsX 20 -subdivisionsY 1 -subdivisionsZ 1 -axis 0 1 0 -rcp 0 -createUVs 3 -constructionHistory 1;
+       
+        move -relative -objectSpace  -worldSpaceDistance $stairWidth ($stairDepth * 5) 0 ;
+        
+        scale -relative -objectSpace 1 ($stairDepth * .5) 1 ;*/
+
+    }
+}
+
+StaircaseGenerator (.5, 5, 2, 1, 20, 20);
+
