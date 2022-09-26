@@ -1,0 +1,143 @@
+/*
+// Addition
+
+global proc float Addition(float $numbers[])
+{
+    float $additionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $additionTotal += $numbers[$index];
+    }
+    return $additionTotal;
+}
+print Addition(1,2);
+
+//Subtraction
+
+global proc float Subtraction(float $numbers[])
+{
+    float $subtractionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $subtractionTotal -= $numbers[$index];
+    }
+    return $subtractionTotal;
+}
+
+//Multiplication
+
+global proc float Multiplication(float $numbers[])
+{
+    float $multiplicationTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $multiplicationTotal *= $numbers[$index];
+    }
+    return $multiplicationTotal;
+}
+
+//Division
+
+global proc float Division(float $numbers[])
+{
+    float $divisionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $divisionTotal /= $numbers[$index];
+    }
+    return $divisionTotal;
+}
+
+
+//Power
+
+global proc float Power(float $numberA, float $numberB)
+{
+   float $powerTotal = pow ($numberA, $numberB);
+
+   return $powerTotal;
+}
+
+
+//Mean (Not Working)
+
+
+global proc float Mean(float $numbers[])
+{
+    float $additionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $additionTotal += ($numbers[$index]);
+    }
+    $meanTotal = ($additionTotal/ $numbers);
+    return $additionTotal;
+}
+
+
+//Median (Also not working)
+
+global proc int even(float $numbers[])
+{
+    if($numbers / 2)
+    {
+        $medianTotal = $median = (($numbers[$size/2] + $numbers[($size/2) - 1]) / 2);
+        return true;
+
+    }
+    else
+    {
+        $medianTotal = $median = (($numbers[$size/2];
+        return false;
+    }
+}
+
+
+
+global proc Calculator(float solve[], int $operation)
+
+{
+    if ($operation == 1)
+    {
+        print("The sum of " + floatArrayToString($solve, " + " ) + "equals" + $subtractionTotal + ".\n";
+    }
+    else if ($operation == 2)
+    {
+        print("The difference of " + floatArrayToString($solve, " - " ) + "equals" + $additionTotal + ".\n";
+    }
+    else if ($operation == 3)
+    {
+        print("The solution to " + floatArrayToString($solve, " x " ) + "equals" + $multiplicationTotal + ".\n";
+    }
+    else if (operation == 4)
+    {
+        print("The solution to " + floatArrayToString($solve, " / " ) + "equals" + $divisionTotal + ".\n";
+    }
+    else if ($operation == 5)
+    {
+        print("The solution to " + floatArrayToString($solve, " ^ " ) + "equals" + $powerTotal + ".\n";
+    }
+    else if ($operation == 6)
+    {
+        print("The mean of " + floatArrayToString($solve, " , " ) + "equals" + $meanTotal + ".\n";
+    }
+    else if ($operation == 7)
+    {
+        print("The median of " + floatArrayToString($solve, " , " ) + "equals" + $medianTotal + "\n";
+    }
+    else
+    {
+        print ("Please input a valid value. 1 - 7. \n");
+    }
+}
+Calculator({1,2,3}, 2);
+*/
