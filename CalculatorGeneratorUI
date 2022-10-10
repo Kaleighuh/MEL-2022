@@ -1,0 +1,183 @@
+// Addition
+
+global proc float Addition(float $numbers[])
+{
+    float $additionTotal = 0; // index (array) starts at 0. Adding numbers to 0
+    int $size = size($numbers); 
+
+    for($index = 0; $index < size($numbers); $index++)
+    {
+        $additionTotal = $additionTotal + $numbers[$index];
+    }
+    return $additionTotal;
+}
+
+//Subtraction 
+
+global proc float Subtraction(float $numbers[])
+{
+    float $subtractionTotal = $numbers[0]; // index (array) starts at 0. Adding numbers to 0
+    int $size = size($numbers); 
+
+    for($index = 1; $index < size($numbers); $index++)
+    {
+        $subtractionTotal = $subtractionTotal + $numbers[$index];
+    }
+    return $subtractionTotal;
+}
+
+
+//Multiplication
+
+global proc float Multiplication(float $numbers[])
+{
+    float $multiplicationTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $multiplicationTotal *= $numbers[$index];
+    }
+    return $multiplicationTotal;
+}
+
+//Division
+
+global proc float Division(float $numbers[])
+{
+    float $divisionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $divisionTotal /= $numbers[$index];
+    }
+    return $divisionTotal;
+}
+
+
+//Power
+
+global proc float Power(float $numberA, float $numberB)
+{
+   float $powerTotal = pow ($numberA, $numberB);
+
+   return $powerTotal;
+}
+
+
+//Mean (Not Working)
+
+
+global proc float Mean(float $numbers[])
+{
+    float $additionTotal;
+    int $size = size($numbers); 
+
+    for($index = 0; $index < $size; $size++)
+    {
+        $additionTotal += ($numbers[$index]);
+    }
+    $meanTotal = ($additionTotal/ $numbers);
+    return $additionTotal;
+}
+
+
+//Median (Also not working)
+
+global proc int even(float $numbers[])
+{
+    if($numbers / 2)
+    {
+        $medianTotal = $median = (($numbers[$size/2] + $numbers[($size/2) - 1]) / 2);
+        return true;
+
+    }
+    else
+    {
+        $medianTotal = $median = (($numbers[$size/2];
+        return false;
+    }
+}
+
+
+
+global proc float Calculator(float $input[], int $operation)
+
+{
+    float $result;
+     string $operationSymbol;
+
+
+    if ($operation == 1)
+    {
+        $result = Addition($input);
+        $operationSymbol = "+";
+
+        print("The sum of " + floatArrayToString($solve, " + " ) + "equals" + $subtractionTotal + ".\n";
+    }
+    else if ($operation == 2)
+    {
+        print("The difference of " + floatArrayToString($solve, " - " ) + "equals" + $additionTotal + ".\n";
+    }
+    else if ($operation == 3)
+    {
+        print("The solution to " + floatArrayToString($solve, " x " ) + "equals" + $multiplicationTotal + ".\n";
+    }
+    else if (operation == 4)
+    {
+        print("The solution to " + floatArrayToString($solve, " / " ) + "equals" + $divisionTotal + ".\n";
+    }
+    else if ($operation == 5)
+    {
+        print("The solution to " + floatArrayToString($solve, " ^ " ) + "equals" + $powerTotal + ".\n";
+    }
+    else if ($operation == 6)
+    {
+        print("The mean of " + floatArrayToString($solve, " , " ) + "equals" + $meanTotal + ".\n";
+    }
+    else if ($operation == 7)
+    {
+        print("The median of " + floatArrayToString($solve, " , " ) + "equals" + $medianTotal + "\n";
+    }
+    else
+    {
+        print ("Please input a valid value. 1 - 7. \n");
+    }
+}
+//Calculator({1,2,3}, 2);
+
+global proc Math()
+{
+    string $operField = `optionVar -q "Operation"`;
+    string $int1Field = `optionVar -q "Input1"`;
+    string $int2Field = `optionVar -q "Input2"`;
+    string $resultField = `optionVar -q "Result"`;
+
+    string $operation = `intField -q -value $operationField`;
+    string $int1 = `floatField -q -value $int1Field`;
+    string $int2 = `floatField -q -value $intField`;
+
+    string $result = Calculator({$int1, $int2}, $operation);
+
+    textField -e -text $result $resultField;
+}
+
+global proc CalUI()
+{
+    string $window = "calculatorWindow";
+    if(`window -exists $window)
+    deleteUI $window
+
+    window = `window -title "Calculator" -widthHeight 300 400 -resizaToFitChildren 1 $window`;
+
+    string $intColumn = `columnLayout -parent $window -adjustableColumn 1`; 
+    button -parent $intColumn -label "Math" -command "Math";
+
+    optionVar -stringValue "Operation" `intField -parent $mainColumn`;
+    optionVar -stringValue "Input1" `floatField -parent $mainColumn`;
+    optionVar -stringValue "Input2" `floatField -parent $mainColumn`;
+    optionVar -stringValue "Result" `textField -parent $mainColumn -editable 0`;
+
+    showWindow $MainWindow;    
+} 
