@@ -1,0 +1,99 @@
+/*-q selected 
+edit transforms
+for loop with rand
+create a UI */
+
+proc RandomGenerator(float $minX, float $maxX, float $minY, float $maxY, float $minZ, float $maxZ)
+{
+    float $minXNum = $minX * -1;
+    float $maxXNum = $maxX;
+    float $minYNum = $minY * -1;
+    float $maxYNum = $maxY;
+    float $minZNum = $minZ * -1;
+    float $maxZNum = $maxZ;
+
+    duplicate;
+
+    string $objects[] = `ls -selection`;
+    int $loop = size ($objects);
+
+    for ($i = 0; $i < $loop; $i++)
+    {
+
+        float $xLimit = $minXNum + $maxXNum;
+        $xLimit = `rand $xLimit`;
+        $xLimit = $xLimit + $minX;
+        print ($xLimit + "\n");
+
+        float $yLimit = $minYNum + $maxYNum;
+        $yLimit = `rand $yLimit`;
+        $yLimit = $yLimit + $minY;
+        print ($yLimit + "\n");
+
+        float $zLimit = $minZNum + $maxZNum;
+        $zLimit = `rand $zLimit`;
+        $zLimit = $zLimit + $minZ;
+        print ($zLimit + "\n");
+
+        move -worldSpace -moveX $xLimit -moveY $yLimit -moveZ $zLimit $objects[$i];
+
+    }
+    
+}
+
+global proc RandButton()
+{
+    string $xMin = `optionVar -q "minXVal"`;
+    string $xMax = `optionVar -q "maxXVal"`;
+    string $yMin = `optionVar -q "minYVal"`;
+    string $yMax = `optionVar -q "maxYVal"`;
+    string $zMin = `optionVar -q "minZVal"`;
+    string $zMax = `optionVar -q "maxYVal"`;
+
+    string $xMinNum = `floatField -q -value $xMin`;
+    string $xMaxNum = `floatField -q -value $xMax`;
+    string $yMinNum = `floatField -q -value $yMin`;
+    string $yMaxNum = `floatField -q -value $yMax`;
+    string $zMinNum = `floatField -q -value $zMin`;
+    string $zMaxNum = `floatField -q -value $zMax`;
+    
+    RandomGenerator($xMinNum, $xMaxNum, $yMinNum, $yMaxNum, $zMinNum, $zMaxNum);
+}
+
+global proc RandomGeneratorUI()
+{
+    string $window = "randWindow";
+    if (`window -exists $window`)
+    deleteUI $window;
+
+    $window = `window -title "Random Generator" -widthHeight 200 200 -resizeToFitChildren 1 $window`;
+
+    string $intColumn = `columnLayout -parent $window -adjustableColumn 1`;
+
+    text "Min X Value";
+    optionVar -stringValue "minXVal" `floatField -parent $intColumn`;
+    separator;
+    text "Max X Value";
+    optionVar -stringValue "maxXVal" `floatField -parent $intColumn`;
+    separator;
+    text "Min Y Value";
+    optionVar -stringValue "minYVal" `floatField -parent $intColumn`;
+    separator;
+    text "Max Y Value";
+    optionVar -stringValue "maxYVal" `floatField -parent $intColumn`;
+    separator;
+    text "Min Z Value";
+    optionVar -stringValue "minZVal" `floatField -parent $intColumn`;
+    separator;
+    text "Max Z Value";
+    optionVar -stringValue "maxZVal" `floatField -parent $intColumn`;
+
+    button -parent $intColumn -label "JÜHJ" -command "RandButton";
+
+    showWindow $window;
+}
+
+RandomGeneratorUI();
+
+
+
